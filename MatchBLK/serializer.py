@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SignUp,MentorSkill,MenteeSkill
+from .models import SignUp,MentorSkill
 
 class MentorSkills(serializers.ModelSerializer):
     class Meta:
@@ -14,21 +14,11 @@ class MentorSkills(serializers.ModelSerializer):
         """
         return MentorSkill.objects.create(**validated_data)
 
-class MenteeSkills(serializers.ModelSerializer):
-    class Meta:
-        model = MenteeSkill
-        fields = (
-                  'menteeskills',
-                  )
-    def create(self, validated_data):
-        """
-        Create and return a new `Snippet` instance, given the validated data.
-        """
-        return MentorSkill.objects.create(**validated_data)
+
 
 class SignUp(serializers.ModelSerializer):
     mentorlist = MentorSkills(many=True)
-    menteelist = MenteeSkills(many=True)
+
     class Meta:
         model = SignUp
         fields = ('first_name',
@@ -41,7 +31,7 @@ class SignUp(serializers.ModelSerializer):
                   'interest',
                   'purpose',
                   'mentorlist',
-                  'menteelist'
+
                   )
 
     def create(self, validated_data):

@@ -71,6 +71,17 @@ def results(request, question_id):
         if (skills_to_match.Database):
             input_user_list.append('Database')
 
+        if (skills_to_match.UX_Design):
+            input_user_list.append('UX Design')
+        if (skills_to_match.Project_Management):
+            input_user_list.append('Project Management')
+        if (skills_to_match.Portfolio_Management):
+            input_user_list.append('Portfolio Management')
+        if (skills_to_match.Investment_Systems):
+            input_user_list.append('Investment Systems')
+        if (skills_to_match.Leadership_Skill):
+            input_user_list.append('Leadership Skill')
+
         new_user = []
         first_name = random.choice(first_names)
         last_name = random.choice(last_names)
@@ -81,12 +92,12 @@ def results(request, question_id):
         new_user_skills = []
 
         #add skills
-        random_length_user_list = random.randrange(1, len(input_user_list))
+        random_length_user_list = random.randrange(0, max(len(input_user_list),1))
         new_user_skills.append(input_user_list[0])
         for i in range(1,random_length_user_list):
             new_user_skills.append(input_user_list[i])
 
-        random_length_master_skill = random.randrange(1, len(master_skill))
+        random_length_master_skill = random.randrange(0, len(master_skill))
         for i in range(1,random_length_master_skill):
             new_user_skills.append(master_skill[i])
 
