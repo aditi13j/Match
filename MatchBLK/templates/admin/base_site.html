@@ -2,8 +2,44 @@
 
 {% block title %}{{ title }} | {{ site_title|default:_('Match:BLK') }}{% endblock %}
 
+{% block extrastyle %}
+<style>
+
+#header{
+    background:#f8971D;
+    color: white;
+    width: auto;
+    height: fit-content;
+}
+.module h2, .module caption, .inline-group h2 {
+    margin: 0;
+    padding: 8px;
+
+    font-size: 13px;
+    text-align: left;
+    background: #f8971D;
+    color: #fff;
+}
+.matchblk {
+    width: 65%;
+    height: 90%;
+}
+.logoblue {
+    width: 100px;
+    height: 100px;
+}
+</style>
+
+{% endblock %}
+
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}">Match:BLK</a></h1>
+    {% load static %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">
+    <img src="{% static "/images/LOGOBLUE.png" %}" class="logoblue"/>
+    <img src="{% static "/images/MatchBLK.png" %}" class="matchblk"/>
+</a>
+</h1>
+
 {% endblock %}
 
 {% block nav-global %}{% endblock %}

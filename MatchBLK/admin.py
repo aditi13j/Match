@@ -22,8 +22,8 @@ class SignUpAdmin(admin.ModelAdmin):
         return redirect('/BLK/5/results')
 
     def save_model(self, request, obj, form, change):
-
         obj.save()
+
     inlines = [MenteeSkillAdmin,MentorSkillAdmin]
 
 admin.site.unregister(User)

@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     # ex: /BLK/
-    #path('', views.index, name='index'),
+    path('', views.index, name='index'),
     # ex: /BLK/5/
     path('<int:question_id>/', views.detail, name='detail'),
     # ex: /BLK/5/results/

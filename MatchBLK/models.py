@@ -50,7 +50,12 @@ class SignUp(models.Model):
     number_of_mentees = models.IntegerField(choices=NUMBER_OF_MENTEE_CHOICES, default=1)
     interest = models.TextField(max_length=50,null=True)
     purpose = models.TextField(max_length=50,null=True)
-    other = models.CharField(max_length=20,null=True)
+
+    Artificial_Intelligence = models.BooleanField()
+    Data_Analysis = models.BooleanField()
+    Presentation_Skills = models.BooleanField()
+    Python = models.BooleanField()
+    Database = models.BooleanField()
 
 
     def __str__(self):

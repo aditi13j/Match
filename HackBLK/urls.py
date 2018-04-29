@@ -21,6 +21,7 @@ from MatchBLK import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     # Maps to ToDoList.get and ToDoList.post
     url(r'^user', views.SignUp.as_view()),
     path('BLK/', include('MatchBLK.urls')),

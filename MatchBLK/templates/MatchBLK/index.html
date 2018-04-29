@@ -1,12 +1,55 @@
-<h1>{{ question.question_text }}</h1>
+<!DOCTYPE html>
+<html>
+<style>
+    body{
+    background-color: #f8971D /*BLK Orange*/
+}
+.button {
+    background-color: #003594; /* BLK Blue */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.mission{
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    color:white;
+    font-size: 23px;
+}
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+    height: 240px;
+    width: 230px;
+}
+.wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 12px;
+  }
+    </style>
+<header>
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+</header>
+<body>
+    {% load static %}
+    <img src="{% static "/images/LOGO_WHITE.png" %}" alt="Match:BLK Logo" class="logo">
+        <p  align="center" style="font-size:23px; color: white" >At BlackRock we believe anyone can learn from anyone.<br>
+        The mission of Match:BLK is to democratize mentoring and increase the likelihood of successful connections.
+        </p>
+    <div class="wrapper">
+        <a href={% url "admin:index" %} class="button">Start Connecting</a>
 
-<form action="{% url 'polls:vote' question.id %}" method="post">
-{% csrf_token %}
-{% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-{% endfor %}
-<input type="submit" value="Vote" />
-</form>
+    </div>
+
+</body>
+</html>

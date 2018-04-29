@@ -1,9 +1,35 @@
+<html>
+<head>
+<style>
+body {background-color: white;}
+body {
+margin: 0;
+padding: 0;
+border: 70px solid #f8971D;
+}
+</style>
+</head>
+
+<h1 style="text-align:center;">Mentor Matches</h1>
+
+<p>
+
 {% if result_list %}
-    <ul>
     {% for user in result_list %}
-        <li><a href="/BLK/{{ 1 }}/">{{ user.first_name }}</a></li>
+        <p>
+        <div>{{user.0}}</div>
+        <div>{{ user.1}}</div>
+        <div>{{ user.2}}</div>
+
+        {% for user in user.3 %}
+            <span>{{user}} | </span>
+        {% endfor %}
+        </p>
     {% endfor %}
-    </ul>
+
 {% else %}
-    <p>No polls are available.</p>
+
+    <p>No results are available.</p>
 {% endif %}
+</body>
+</html>
