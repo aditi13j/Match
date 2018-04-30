@@ -1,36 +1,80 @@
 <html>
-<head>
-<style>
-body {
-background-color: white;
-margin: 0;
-padding: 0;
-border: 70px solid #f8971D;
-}
-</style>
-</head>
-<body>
 
-<h1 style="text-align:center;">Mentor Matches</h1>
+<style>
+body{
+    background-color: #f8971D /*BLK Orange*/
+}
+
+header{
+background-color: #f8971D;
+}
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 270px;
+    width: 260px;
+}
+.logo2{
+    display: block ;
+    align :left;
+    margin-right: auto;
+    height: 20px;
+    width: 30px;
+}
+.button {
+    background-color: forestgreen; /* BLK Blue */
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size:12px;
+    font-family: 'Kannada MN';
+    border-radius: 30px;
+    margin-left: 100px;
+}
+.wrapper {
+    width: 80%;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    padding-bottom: 20px;
+
+  }
+
+</style>
+<header>
+</header>
+
+<body>
+{% load static %}
+    <img src="{% static "/images/LOGO_WHITE.png" %}" alt="Match:BLK Logo" class="logo">
+<h1 style="text-align:center; font-family: cursive; ;font-size:32px; color:#003594 "><b>Mentor Matches (Expires in 30 days)</b></h1>
 
 <p>
 
 {% if result_list %}
     {% for user in result_list %}
-        <p>
-        <div>{{user.0}}</div>
-        <div>{{ user.1}}</div>
-        <div>{{ user.2}}</div>
 
+        <p align= "left" style=" margin-left: 100px; font-family: 'Kannada MN'; font-size:18px; color: white" >
+        {{user.0}} {{ user.1}}<br>
+        {{ user.2}}<br>
         {% for user in user.3 %}
             <span>{{user}} | </span>
         {% endfor %}
+        <div class="wrapper">
+        <a href={% url "admin:index" %} class="button"> Connect</a>
+    </div>
         </p>
+
     {% endfor %}
 
 {% else %}
-
     <p>No results are available.</p>
 {% endif %}
+</p>
 </body>
+
 </html>
